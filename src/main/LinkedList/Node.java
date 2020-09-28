@@ -3,8 +3,8 @@ package main.LinkedList;
 import java.util.Hashtable;
 
 public class Node {
-    int data;
-    Node next = null;
+    private  int data;
+    private Node next = null;
 
     public Node(int data) {
         this.data = data;
@@ -17,6 +17,21 @@ public class Node {
             n = n.next;
         }
         n.next = newNode;
+    }
+
+    public Node appendBegining(Node node, int data) {
+        Node newNode = new Node(data);
+        newNode.next = node;
+        return newNode;
+    }
+    public Node getNode(Node node, int data) {
+        while(node != null) {
+            if (node.data == data) {
+                return node;
+            }
+            node = node.next;
+        }
+        return null;
     }
 
     public Node deleteNode(int data, Node head) {
@@ -44,6 +59,14 @@ public class Node {
         return this.next;
     }
 
+    public void setNext(Node n) {
+        this.next = n;
+    }
+
+    public void setData(int data, Node n) {
+        n.data = data;
+    }
+
     public void deleteMiddleNode(Node n) {
         if (n.next == null) {
             return;
@@ -68,4 +91,5 @@ public class Node {
             }
         }
     }
+
 }
