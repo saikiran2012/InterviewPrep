@@ -17,10 +17,18 @@ public class BSTNode<T> {
         parent.left = left;
     }
 
+    public void setLeft(BSTNode left) {
+        this.left = left;
+    }
+
     public BSTNode getLeft() { return  left;}
 
     public void setRight(BSTNode parent, BSTNode right) {
         parent.right = right;
+    }
+
+    public void setRight(BSTNode right) {
+        this.right = right;
     }
 
     public BSTNode getRight() {return right;}

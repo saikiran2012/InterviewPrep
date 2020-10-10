@@ -80,6 +80,20 @@ public class Graph<T extends Comparable<T>> {
         vistedArray = new ArrayList<T>();
     }
 
+    public void clearVisitedNodes(Node root) {
+        if (root == null) return;
+        root.setVisited(false);
+        if(root.getChildren() == null) return;
+        ArrayList<Node> children = root.getChildren();
+        Iterator<Node> itr = children.iterator();
+        while (itr.hasNext()) {
+            Node n = itr.next();
+            if(n.isVisited()) {
+                clearVisitedNodes(n);
+            }
+        }
+    }
+
     public void bfs() {
         Queue<Node> queue = new Queue<Node>();
         for(Node n: nodes) {
